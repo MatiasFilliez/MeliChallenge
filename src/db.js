@@ -11,6 +11,12 @@ const {
 const sequelize = new Sequelize(`${DATABASE_URL}`, {
   dialect: 'postgres',
   protocol: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false // Esto es importante para evitar errores de certificado SSL
+    }
+  }
 }
 
 );
