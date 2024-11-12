@@ -5,18 +5,12 @@ import { Sequelize } from 'sequelize'
 
 configDotenv()
 const {
-  DATABASE_URL
+  DB_NAME,DB_USER, DB_PASSWORD,DB_HOST
 } = process.env;
 
-const sequelize = new Sequelize(`${DATABASE_URL}`, {
-  dialect: 'postgres',
-  protocol: 'postgres',
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false // Esto es importante para evitar errores de certificado SSL
-    }
-  }
+const sequelize = new Sequelize(DB_NAME,DB_USER,DB_PASSWORD,{
+  host:DB_HOST || 'localhost',
+  dialect: 'postgres'
 }
 
 );
