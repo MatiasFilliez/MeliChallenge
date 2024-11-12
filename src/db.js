@@ -5,11 +5,11 @@ import { Sequelize } from 'sequelize'
 
 configDotenv()
 const {
-  DB_URI
+  DATABASE_URL
 } = process.env;
 
 const sequelize = new Sequelize(
-  DB_URI
+  DATABASE_URL
 );
 
 const modelDefined = [
