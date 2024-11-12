@@ -5,16 +5,11 @@ import { Sequelize } from 'sequelize'
 
 configDotenv()
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME,
+  DB_URI
 } = process.env;
-console.log(DB_NAME, DB_USER, DB_PASSWORD)
+
 const sequelize = new Sequelize(
-  DB_NAME,
-  DB_USER,
-  DB_PASSWORD, {
-  host: DB_HOST,
-  dialect: 'postgres',
-}
+  DB_URI
 );
 
 const modelDefined = [
